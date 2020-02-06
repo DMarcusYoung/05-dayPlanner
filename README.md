@@ -10,3 +10,4 @@ HTML was used for the basic page layout, CSS was used sparingly for the input co
 The main challenge was dealing with the dynamically generated inputs. It took a long time to figure out how to get the values of an input when its corresponding save button was pressed becuase each input didn't have a specific id or unique class. In the end this was solved using the 'this' function and jquery's element navigation. The event listener for the save button also had to have a slightly different syntax than what I was used to doing, which took a lot of time and frustration to my soul to figure out. There were surprisingly very few bugs, the main one having to do with not updating values from local storage, but it was an easy fix.
 
 ## Screenshots
+https://user-images.githubusercontent.com/57845573/73987734-31083e80-48f6-11ea-9d5f-1c2643708581.PNG
