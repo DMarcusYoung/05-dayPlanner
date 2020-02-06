@@ -17,10 +17,10 @@ $(document).ready(function(){
         const $saveIcon = $("<i>");
 
         $inputGroupDiv.addClass("input-group mb-3");
-        $input.addClass("form-control task").attr("type", "text");
+        $input.addClass("form-control").attr("type", "text");
         $hourDiv.addClass("input-group-prepend input-group-text").text(hours[i]);
         $buttonDiv.addClass("input-group-append");
-        $saveBtn.addClass("btn btn-primary saveButton").attr("data-bind", "task")
+        $saveBtn.addClass("btn btn-primary saveButton")
         // $saveBtn.attr("type", "submit");
         $saveIcon.addClass("material-icons").text("save");
         
@@ -32,6 +32,10 @@ $(document).ready(function(){
             $input.addClass("current");
         }
 
+        if(localStorage.getItem(hours[i])){
+            $input.val(localStorage.getItem(hours[i]));
+        }
+
         $saveBtn.append($saveIcon);
         $buttonDiv.append($saveBtn);
         $inputGroupDiv.append($hourDiv, $input, $buttonDiv);
@@ -40,13 +44,12 @@ $(document).ready(function(){
 
     $(document).on('click', ".saveButton", function(e){
         e.preventDefault();
-        console.log($(this).parents('.input-group-append').siblings('input').val());
-        // var inputt = $('.' + $(this).data('bind'));
-        // console.log(inputt);
+        const inputVal = $(this).parents('.input-group-append').siblings('input').val();
+        const inputHour = $(this).parents('.input-group-append').siblings('.input-group-text').text();
+        console.log(inputHour);
+        // add a separate attr that assigns a number to each input
+        // Use 'this' function to assign time to the name of the storage item
+            localStorage.setItem(inputHour, inputVal);
     })
 })
-//   $(this).parents('.input-group').children('input').val(amount - 1);
-// $(".increase").click(function() {
-//     var input = $('#' + $(this).data('bind'));
-//     input.val(input.val++);
-//   });
+
